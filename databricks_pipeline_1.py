@@ -62,13 +62,13 @@ notebook_task_params = {
 # }
 
 notebook_task = DatabricksSubmitRunOperator(
-  task_id='Read data and build high bucket models',
+  task_id='Read-data-and-build-high-bucket-models',
   dag=dag,
   json=notebook_task_params)
 
 
 notebook_task2 = DatabricksSubmitRunOperator(
-  task_id='Run-notebook-2',
+  task_id='Run-high-low-and-final-ranking',
   dag=dag,
   json={
     'new_cluster': new_cluster,
