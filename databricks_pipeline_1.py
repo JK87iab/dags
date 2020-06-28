@@ -49,8 +49,8 @@ new_cluster2 = {
 #First notebook parameter
 notebook_task_params = {
     'new_cluster': new_cluster,
-    'notebook_task': {'base_parameters':{"param1":"xyz","param2":"123"},
-    'notebook_path': '/Users/jonas.krueger@symphonyretailai.com/airflow/airflow_test',  
+    'notebook_task': {'base_parameters':{"retailer_name":retailer_name,"version":version,"categroy":category,"family":family},
+    'notebook_path': '/Users/jonas.krueger@symphonyretailai.com/CPGAI_modelling_code/01_read_data',  
   },
 }
 
@@ -62,7 +62,7 @@ notebook_task_params = {
 # }
 
 notebook_task = DatabricksSubmitRunOperator(
-  task_id='Run-notebook-1',
+  task_id='Read data and build high bucket models',
   dag=dag,
   json=notebook_task_params)
 
@@ -75,7 +75,7 @@ notebook_task2 = DatabricksSubmitRunOperator(
     'notebook_task': {'base_parameters':{"retailer_name": '{{ dag_run.conf["retailer_name"] if dag_run else "" }}' ,
                                         "cat": '{{ dag_run.conf["cat"] if dag_run else "" }}',
                                         "fam": '{{ dag_run.conf["fam"] if dag_run else "" }}'},
-    'notebook_path': '/Users/jonas.krueger@symphonyretailai.com/airflow/airflow_test_2',  
+    'notebook_path': '/Users/jonas.krueger@symphonyretailai.com/CPGAI_modelling_code/02_run_train_model',  
   },
 })
 
