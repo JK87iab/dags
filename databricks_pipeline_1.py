@@ -37,8 +37,8 @@ new_cluster = {
 #define cluster to use
 new_cluster2 = {
     'spark_version': '6.5.x-scala2.11',
-    'node_type_id': 'Standard_DS3_v2',
-    'num_workers': 1
+    'node_type_id': 'Standard_F8s',
+    'num_workers': 30
 }
 
 #First notebook parameter
@@ -49,12 +49,6 @@ notebook_task_params = {
   },
 }
 
-# notebook_task_params2 = {
-#     'new_cluster': new_cluster,
-#     'notebook_task': {'base_parameters':{"retailer_name":context['dag_run'].conf.get('retailer_name')}, 
-#     'notebook_path': '/Users/jonas.krueger@symphonyretailai.com/airflow/airflow_test_2',  
-#   },
-# }
 
 notebook_task = DatabricksSubmitRunOperator(
   task_id='Read-data-and-build-high-bucket-models',
@@ -66,10 +60,8 @@ notebook_task2 = DatabricksSubmitRunOperator(
   task_id='Run-high-low-and-final-ranking',
   dag=dag,
   json={
-    'new_cluster': new_cluster,
-    'notebook_task': {'base_parameters':{"retailer_name": '{{ dag_run.conf["retailer_name"] if dag_run else "" }}' ,
-                                        "cat": '{{ dag_run.conf["cat"] if dag_run else "" }}',
-                                        "fam": '{{ dag_run.conf["fam"] if dag_run else "" }}'},
+    'new_cluster': new_cluster2,
+    'notebook_task': {'base_parameters':{"retailer_name":retailer_name,"version":version,"categroy":category,"family":family},
     'notebook_path': '/Users/jonas.krueger@symphonyretailai.com/CPGAI_modelling_code/02_run_train_model',  
   },
 })
