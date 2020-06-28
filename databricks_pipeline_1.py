@@ -24,12 +24,7 @@ dag = DAG(dag_id='Model_pipe_1', default_args=args)
 
 
 # You can also access the DagRun object in templates
-bash_task = BashOperator(
-    task_id="bash_task",
-    bash_command='echo "Here is the messagem: '
-                 '{{ dag_run.conf if dag_run else "" }}" ',
-    dag=dag,
-)
+
 
 
 #define cluster to use
@@ -80,4 +75,5 @@ notebook_task2 = DatabricksSubmitRunOperator(
 })
 
 
-bash_task >> notebook_task >> notebook_task2
+notebook_task >> notebook_task2
+
