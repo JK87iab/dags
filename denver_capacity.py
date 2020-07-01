@@ -21,7 +21,7 @@ args = {
     tags=['Baseline Forecast']
 }
 
-dag = DAG(dag_id='Model_pipe_1', default_args=args)
+dag = DAG(dag_id='Denver Capacity', default_args=args)
 
 
 # You can also access the DagRun object in templates
