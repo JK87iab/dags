@@ -18,10 +18,10 @@ args = {
     'email': ['airflow@example.com'],
     'depends_on_past': False,
     'start_date': airflow.utils.dates.days_ago(0)
-    tags=['Baseline Forecast']
+   
 }
 
-dag = DAG(dag_id='Denver Capacity', default_args=args)
+dag = DAG(dag_id='Denver Capacity', default_args=args,  tags =['Baseline Forecast'])
 
 
 # You can also access the DagRun object in templates
