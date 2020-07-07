@@ -38,7 +38,7 @@ new_cluster = {
 new_cluster2 = {
     'spark_version': '6.5.x-scala2.11',
     'node_type_id': 'Standard_F8s',
-    'num_workers': 30
+    'num_workers': 40
 }
 
 #First notebook parameter
