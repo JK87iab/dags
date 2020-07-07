@@ -31,7 +31,7 @@ dag = DAG(dag_id='Denver-Capacity', default_args=args,  tags =['Baseline-Forecas
 new_cluster = {
     'spark_version': '6.5.x-scala2.11',
     'node_type_id': 'Standard_DS3_v2',
-    'num_workers': 1
+    'num_workers': 3
 }
 
 #define cluster to use
