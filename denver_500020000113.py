@@ -32,7 +32,7 @@ dag = DAG(dag_id='Denver-500020000113', default_args=args,  tags =['Baseline-For
 #baseline-denver-500020000113
 #define cluster to use
 new_cluster = {
-    'spark_version': '7.1.x-scala2.13',
+    'spark_version': '7.1.x-scala2.12',
     'node_type_id': 'Standard_F8s',
     'driver_node_type_id':'Standard_DS3_v2',
     'num_workers': 20
@@ -40,7 +40,7 @@ new_cluster = {
 
 #define cluster to use
 new_cluster2 = {
-    'spark_version': '7.1.x-scala2.13',
+    'spark_version': '7.1.x-scala2.12',
     'node_type_id': 'Standard_F8s',
     'driver_node_type_id':'Standard_DS3_v2',
     'num_workers': 50
