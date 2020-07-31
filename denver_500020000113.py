@@ -26,7 +26,7 @@ args = {
 
 dag = DAG(dag_id='Denver-500020000113', default_args=args,  tags =['Baseline-Forecast', 'Denver'])
 
-#dapi39a1c4a1885506120bdb1d5d5f613ba2
+#
 # You can also access the DagRun object in templates
 
 #baseline-denver-500020000113
@@ -43,7 +43,7 @@ new_cluster2 = {
     'spark_version': '7.1.x-scala2.12',
     'node_type_id': 'Standard_F16s',
     'driver_node_type_id':'Standard_DS3_v2',
-    'num_workers': 25
+    'num_workers': 10
 }
 
 #First notebook parameter
