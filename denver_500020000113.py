@@ -34,7 +34,7 @@ dag = DAG(dag_id='Denver-500020000113', default_args=args,  tags =['Baseline-For
 new_cluster = {
     'spark_version': '7.1.x-scala2.12',
     'node_type_id': 'Standard_F16s',
-    'driver_node_type_id':'Standard_DS16_v2',
+    'driver_node_type_id':' Standard_D16s_v3',
     'num_workers': 10
 }
 
@@ -42,7 +42,7 @@ new_cluster = {
 new_cluster2 = {
     'spark_version': '7.1.x-scala2.12',
     'node_type_id': 'Standard_F16s',
-    'driver_node_type_id':'Standard_DS16_v2',
+    'driver_node_type_id':' Standard_D16s_v3',
     'num_workers': 14
 }
 
