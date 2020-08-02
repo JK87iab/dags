@@ -43,7 +43,7 @@ new_cluster2 = {
     'spark_version': '7.1.x-scala2.12',
     'node_type_id': 'Standard_F16s',
     'driver_node_type_id':'Standard_D16s_v3',
-    'num_workers': 14
+    'num_workers': 17
 }
 
 #First notebook parameter
