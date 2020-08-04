@@ -41,9 +41,9 @@ new_cluster = {
 #define cluster to use
 new_cluster2 = {
     'spark_version': '7.0.x-scala2.12',
-    'node_type_id': 'Standard_F16s',
+    'node_type_id': 'Standard_F32s_v2',
     'driver_node_type_id':'Standard_D16s_v3',
-    'num_workers': 25
+    'num_workers':12
 }
 
 #First notebook parameter
