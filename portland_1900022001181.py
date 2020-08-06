@@ -35,7 +35,7 @@ new_cluster = {
     'spark_version': '7.0.x-scala2.12',
     'node_type_id': 'Standard_F16s',
     'driver_node_type_id':'Standard_D16s_v3',
-    'num_workers': 15
+    'num_workers': 10
 }
 
 #define cluster to use
