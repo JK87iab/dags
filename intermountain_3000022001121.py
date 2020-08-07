@@ -34,7 +34,7 @@ dag = DAG(dag_id='Intermountain-3000022001121', default_args=args,  tags =['Base
 new_cluster = {
     'spark_version': '7.0.x-scala2.12',
     'node_type_id': 'Standard_F16s',
-    'driver_node_type_id':'Standard_D16s_v3',
+    'driver_node_type_id':'Standard_DS13_v2',
     'num_workers': 7
 }
 
@@ -42,7 +42,7 @@ new_cluster = {
 new_cluster2 = {
     'spark_version': '7.0.x-scala2.12',
     'node_type_id': 'Standard_F32s_v2',
-    'driver_node_type_id':'Standard_D16s_v3',
+    'driver_node_type_id':'Standard_DS13_v2',
     'num_workers': 18
 }
 
