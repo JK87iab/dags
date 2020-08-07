@@ -25,7 +25,7 @@ args = {
     'start_date': airflow.utils.dates.days_ago(0)  
 }
 
-dag = DAG(dag_id='INTERMOUNTAIN All', default_args=args,  tags =['Baseline-Forecast', 'Intermountain'])
+dag = DAG(dag_id='INTERMOUNTAIN-All', default_args=args,  tags =['Baseline-Forecast', 'Intermountain'])
 
 #
 # You can also access the DagRun object in templates
