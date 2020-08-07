@@ -31,7 +31,7 @@ dag = DAG(dag_id='INTERMOUNTAIN-All', default_args=args,  tags =['Baseline-Forec
 # You can also access the DagRun object in templates
 
 
-subdag0: TriggerDagRunOperator = TriggerDagRunOperator(trigger_dag_id='Intermountain-3000022001121')
+subdag0: TriggerDagRunOperator = TriggerDagRunOperator(task_id = "trigger-Intermountain-3000022001121", trigger_dag_id='Intermountain-3000022001121')
 
 subdag0 
 # subdag0 = SubDagOperator(
