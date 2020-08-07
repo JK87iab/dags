@@ -3,7 +3,7 @@ from airflow import DAG
 from airflow.contrib.operators.databricks_operator import DatabricksSubmitRunOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
-from airflow.operators.subdag_operator import SubDagOperator
+from airflow.operators.dagrun_operator import TriggerDagRunOperator
 from airflow.models import Variable
 
 
@@ -31,43 +31,48 @@ dag = DAG(dag_id='INTERMOUNTAIN-All', default_args=args,  tags =['Baseline-Forec
 # You can also access the DagRun object in templates
 
 
-subdag0 = SubDagOperator(
-        task_id='Intermountain-3000022001121',
-        subdag=subdag(Intermountain-3000022001121),
-        dag=dag,
-        )
+subdag0: TriggerDagRunOperator = TriggerDagRunOperator(dag=dag,
+                                                               trigger_rule=TriggerRule.ALL_SUCCESS,
+                                                               external_dag_id='Intermountain-3000022001121')
+
+subdag0 
+# subdag0 = SubDagOperator(
+        # task_id='Intermountain-3000022001121',
+        # subdag=subdag(Intermountain-3000022001121),
+        # dag=dag,
+        # )
 
 
-subdag1 = SubDagOperator(
-        task_id='Intermountain-3000022001123',
-        subdag=subdag(Intermountain-3000022001123),
-        dag=dag,
-        )
+# subdag1 = SubDagOperator(
+        # task_id='Intermountain-3000022001123',
+        # subdag=subdag(Intermountain-3000022001123),
+        # dag=dag,
+        # )
 
-subdag2 = SubDagOperator(
-        task_id='Intermountain-3000022001122',
-        subdag=subdag(Intermountain-3000022001122),
-        dag=dag,
-        )
-
-
-subdag3 = SubDagOperator(
-        task_id='Intermountain-3000020001122',
-        subdag=subdag(Intermountain-3000020001122),
-        dag=dag,
-        )
+# subdag2 = SubDagOperator(
+        # task_id='Intermountain-3000022001122',
+        # subdag=subdag(Intermountain-3000022001122),
+        # dag=dag,
+        # )
 
 
-subdag4 = SubDagOperator(
-        task_id='Intermountain-3000020001123',
-        subdag=subdag(Intermountain-3000020001123),
-        dag=dag,
-        )
+# subdag3 = SubDagOperator(
+        # task_id='Intermountain-3000020001122',
+        # subdag=subdag(Intermountain-3000020001122),
+        # dag=dag,
+        # )
 
-subdag5 = SubDagOperator(
-        task_id='Intermountain-3000020001121',
-        subdag=subdag(Intermountain-3000020001121),
-        dag=dag,
-        )
 
-subdag0 >> subdag1 >> subdag2 >> subdag3 >> subdag4 >> subdag5 
+# subdag4 = SubDagOperator(
+        # task_id='Intermountain-3000020001123',
+        # subdag=subdag(Intermountain-3000020001123),
+        # dag=dag,
+        # )
+
+# subdag5 = SubDagOperator(
+        # task_id='Intermountain-3000020001121',
+        # subdag=subdag(Intermountain-3000020001121),
+        # dag=dag,
+        # )
+
+# subdag0 >> subdag1 >> subdag2 >> subdag3 >> subdag4 >> subdag5 
