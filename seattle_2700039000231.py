@@ -12,7 +12,7 @@ from airflow.models import Variable
 # family  = Variable.get("fam_pipe_denver_capacity")
 
 retailer_name  = 'seattle'
-store_group_id = 2700022000072
+store_group_id = 2700039000231
 category  = 'Baseline Forecasting'
 version  = 'v1'
 family  = 'F1'
@@ -24,7 +24,7 @@ args = {
     'start_date': airflow.utils.dates.days_ago(0)  
 }
 
-dag = DAG(dag_id='Seattle-2700022000072', default_args=args,  tags =['Baseline-Forecast', 'Seattle'])
+dag = DAG(dag_id='Seattle-2700039000231', default_args=args,  tags =['Baseline-Forecast', 'Seattle'])
 
 #
 # You can also access the DagRun object in templates
